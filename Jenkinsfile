@@ -16,7 +16,10 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv('sonar-server') {
-                    sh 'sonar-scanner'
+                    sh '''
+                    cd app
+                    /opt/sonar-scanner/bin/sonar-scanner
+                    '''
                 }
             }
         }
@@ -24,7 +27,7 @@ pipeline {
         stage('OWASP Scan') {
             steps {
                 sh '''
-                dependency-check/bin/dependency-check.sh \
+                ~/dependency-check/bin/dependency-check.sh \
                 --project "DevOps Project" \
                 --scan . \
                 --format HTML \

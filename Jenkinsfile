@@ -7,12 +7,6 @@ pipeline {
 
     stages {
 
-        stage('Clone Code') {
-            steps {
-                git 'https://github.com/tejaskalal/devops-project-1.git'
-            }
-        }
-
         stage('Install Dependencies') {
             steps {
                 sh 'cd app && npm install'

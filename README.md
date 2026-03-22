@@ -20,19 +20,30 @@ Steps
 Launch EC2 instance (c7i-flex.large, 20GB storage)
 
 Open ports:
-8080 → Jenkins ,
-9000 → SonarQube ,
-3000 → Application
+- 8080 → Jenkins 
+- 9000 → SonarQube 
+- 3000 → Application
 
 
 ### Phase 2: Install Required Software
 
 Installed:
-OpenJDK 17
-Docker
-Jenkins
+- OpenJDK 17 from 
+- Jenkins from 
+- Docker from 
 
 Docker Additional Setup
 Added Jenkins user to Docker group
 Restarted Jenkins
+
+### Phase 3: SonarQube Setup
+Steps
+```md
+```bash
+docker run -d --name sonar -p 9000:9000 sonarqube:lts
+
+Open SonarQube UI: http://<IP>:9000
+Default login: admin / admin
+Create project: devops-project
+Generate token
 

@@ -88,8 +88,29 @@ This resolved permission-related issues during pipeline execution.
 - SCM = Git , Repositories = repo_url , branches to build = main and save
 - Build pipeline successfully
 
+## Results
+### Deployment Result
+Application running inside Docker container and accessed via server_ip and application
+
+<img width="1861" height="974" alt="Screenshot 2026-03-22 144540" src="https://github.com/user-attachments/assets/1dc6aae1-eee6-40e9-b016-09b1a59361ce" />
+
+### SonarQube Result
+Quality analysis completed successfully.
+-  Quality Gate: Passed
+-  No bugs or vulnerabilities
+-  All ratings: A
+
+<img width="1848" height="838" alt="Screenshot 2026-03-22 144614" src="https://github.com/user-attachments/assets/4ac25ca9-5a5a-4bee-b6a1-292ef9e44e4a" />
+
+### Jenkins Pipeline Result
+
+- Build: Successful  
+- Duration: 1 min 8 sec  
+- GitHub Integrated
+
+<img width="1851" height="831" alt="Screenshot 2026-03-22 150013" src="https://github.com/user-attachments/assets/2b042d42-1e8a-4941-951c-b9b89e0278ef" />
 
 
-  
-  
+
+
 

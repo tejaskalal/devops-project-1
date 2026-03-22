@@ -9,7 +9,10 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                sh 'cd app && npm install'
+                sh '''
+                cd app
+                npm install
+                '''
             }
         }
 
@@ -27,7 +30,8 @@ pipeline {
         stage('OWASP Scan') {
             steps {
                 sh '''
-                ~/dependency-check/bin/dependency-check.sh \
+                cd app
+                /home/ubuntu/dependency-check/bin/dependency-check.sh \
                 --project "DevOps Project" \
                 --scan . \
                 --format HTML \
@@ -38,19 +42,26 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t $DOCKER_IMAGE .'
+                sh '''
+                docker build -t $DOCKER_IMAGE .
+                '''
             }
         }
 
         stage('Trivy Scan') {
             steps {
-                sh 'trivy image $DOCKER_IMAGE'
+                sh '''
+                trivy image $DOCKER_IMAGE
+                '''
             }
         }
 
         stage('Run Container') {
             steps {
-                sh 'docker run -d -p 3000:3000 $DOCKER_IMAGE'
+                sh '''
+                docker rm -f devops-container || true
+                docker run -d -p 3000:3000 --name devops-container $DOCKER_IMAGE
+                '''
             }
         }
     }

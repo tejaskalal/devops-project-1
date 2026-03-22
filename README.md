@@ -42,8 +42,8 @@ Steps
 ```bash
 docker run -d --name sonar -p 9000:9000 sonarqube:lts
 ```
-Open SonarQube UI: http://instance_ip:9000
-Default login: admin(this is username) / admin(this is pass) (intial credential given by sonarqube using this loged in and update pass)
-Create project: devops-project
-Generate token (click on profile -->Go to myaccount-->security-->generate token (keep it safely)
+- Open SonarQube UI: http://instance_ip:9000
+- Default login: admin(this is username) / admin(this is pass) (intial credential given by sonarqube using this loged in and update pass)
+- Create project: devops-project
+- Generate token (click on profile -->Go to myaccount-->security-->generate token (keep it safely)
 

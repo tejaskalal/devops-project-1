@@ -24,7 +24,7 @@ Open ports:
 3000 → Application
 
 
-#### Phase 2: Install Required Software
+### Phase 2: Install Required Software
 
 Installed:
 OpenJDK 17

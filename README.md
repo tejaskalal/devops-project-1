@@ -28,7 +28,7 @@ Open ports:
 ### Phase 2: Install Required Software
 
 Installed:
-- OpenJDK 17 
+- OpenJDK 
 - Jenkins 
 - Docker 
 
@@ -54,5 +54,42 @@ Steps
 - Install SonarQube Scanner plugin (manage jenkins-->Plugins-->available plugins-->SonarQube Scanner-->install
 - Add sonar token (manage jenkins-->credentials-->add cred-->secret text-->secret field = (put sonar token) , id = (sonar-token)-->create)
 - Configure SonarQube server in Jenkins(manage jenkins-->system-->add sonarqube-->name = (sonar-server) , add default url = (http://instance_ip:8080) , server auth token = (server-token)
-- save 
+- save
+
+### Phase 5: Install Security Tools
+Tools Installed
+- Trivy (test with trivy image nginx)
+- OWASP Dependency Check was installed in the `/opt` directory instead of `/root` to ensure accessibility for the Jenkins user.
+Reason:
+- `/root` is restricted for non-root users
+- Jenkins runs as a non-root user
+- `/opt` is a standard directory for shared tools
+
+This resolved permission-related issues during pipeline execution.
+
+### Phase 6: Project Setup and Implement files
+
+1. Create project directory --> devops-project
+2.Create app folder --> app (inside devops-project)
+3.Create Dockerfile --> In devops-project
+4.Create index.js , package.json , sonar-project.properties --> In app directory
+
+### Phase 7: GitHub 
+- Create repo at github (devops-project-1)
+- Create token (setting--> developer --> Generate token --> classic token --> name and expiry for token -->select repo (checkbox) --> create and save token (keep is safely)
+- pushed all files to github through cli / server and for authentication username name and token used
+
+### Phase 8: Implement Jenkins file
+- Create Jenkinsfile on github in devops-project directory
+
+### Phase 9: Create job and build pipeline
+- Create a item (devops-project-peipeline) and select pipeline as item type and Ok
+- Then scroll to pipeline selects definition as pipeline script with scm
+- SCM = Git , Repositories = repo_url , branches to build = main and save
+- Build pipeline successfully
+
+
+
+  
+  
 

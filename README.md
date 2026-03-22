@@ -20,8 +20,8 @@ Steps
 Launch EC2 instance (c7i-flex.large, 20GB storage)
 
 Open ports:
-8080 → Jenkins
-9000 → SonarQube
+8080 → Jenkins ,
+9000 → SonarQube ,
 3000 → Application
 
 

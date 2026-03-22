@@ -31,7 +31,7 @@ pipeline {
             steps {
                 sh '''
                 cd app
-                /home/ubuntu/dependency-check/bin/dependency-check.sh \
+                /opt/dependency-check/bin/dependency-check.sh \
                 --project "DevOps Project" \
                 --scan . \
                 --format HTML \

@@ -28,9 +28,9 @@ Open ports:
 ### Phase 2: Install Required Software
 
 Installed:
-- OpenJDK 17 from 
-- Jenkins from 
-- Docker from 
+- OpenJDK 17 
+- Jenkins 
+- Docker 
 
 Docker Additional Setup
 Added Jenkins user to Docker group
@@ -41,9 +41,9 @@ Steps
 ```md
 ```bash
 docker run -d --name sonar -p 9000:9000 sonarqube:lts
-
-Open SonarQube UI: http://<IP>:9000
-Default login: admin / admin
+```
+Open SonarQube UI: http://instance_ip:9000
+Default login: admin(this is username) / admin(this is pass) (intial credential given by sonarqube using this loged in and update pass)
 Create project: devops-project
-Generate token
+Generate token (click on profile -->Go to myaccount-->security-->generate token (keep it safely)
 

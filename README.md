@@ -47,3 +47,12 @@ docker run -d --name sonar -p 9000:9000 sonarqube:lts
 - Create project: devops-project
 - Generate token (click on profile -->Go to myaccount-->security-->generate token (keep it safely)
 
+### Phase 4: Jenkins Configuration
+
+Steps
+- Open Jenkins UI; http://instance_ip:8080 (You'll get inital password path , get password from their and logged in . install suggested plugin and setup admin user with new credential)
+- Install SonarQube Scanner plugin (manage jenkins-->Plugins-->available plugins-->SonarQube Scanner-->install
+- Add sonar token (manage jenkins-->credentials-->add cred-->secret text-->secret field = (put sonar token) , id = (sonar-token)-->create)
+- Configure SonarQube server in Jenkins(manage jenkins-->system-->add sonarqube-->name = (sonar-server) , add default url = (http://instance_ip:8080) , server auth token = (server-token)
+- save 
+

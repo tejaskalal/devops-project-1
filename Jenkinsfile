@@ -35,7 +35,8 @@ pipeline {
                 --project "DevOps Project" \
                 --scan . \
                 --format HTML \
-                --out reports
+                --out reports \
+                --noupdate
                 '''
             }
         }

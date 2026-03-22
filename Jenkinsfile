@@ -37,6 +37,7 @@ pipeline {
                 --format HTML \
                 --out reports \
                 --noupdate
+                --failOnCVSS 11
                 '''
             }
         }

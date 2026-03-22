@@ -29,16 +29,17 @@ pipeline {
 
         stage('OWASP Scan') {
             steps {
-                sh '''
-                cd app
-                /opt/dependency-check/bin/dependency-check.sh \
-                --project "DevOps Project" \
-                --scan . \
-                --format HTML \
-                --out reports \
-                --noupdate
-                --failOnCVSS 11
-                '''
+                withCredentials([string(credentialsId: 'nvd-api-key', variable: 'NVD_KEY')]) {
+                    sh '''
+                    cd app
+                    /opt/dependency-check/bin/dependency-check.sh \
+                    --project "DevOps Project" \
+                    --scan . \
+                    --format HTML \
+                    --out reports \
+                    --nvdApiKey=$NVD_KEY
+                    '''
+                }
             }
         }
 
